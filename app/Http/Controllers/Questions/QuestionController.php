@@ -23,6 +23,13 @@ class QuestionController extends Controller
         // Check if there is an active (incomplete) quiz for this user
         $quiz = Quiz::where('user_id', $user->id)->where('completed', 0)->first();
 
+        // If the existing incomplete quiz does not have exactly 5 questions (1 per category), delete and recreate it
+        if ($quiz && $quiz->questions()->count() !== 5) {
+            $quiz->questions()->detach();
+            $quiz->delete();
+            $quiz = null;
+        }
+
         if (!$quiz) {
             $quiz = Quiz::create([
                 'completed' => 0,
