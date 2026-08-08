@@ -31,8 +31,8 @@ class QuestionController extends Controller
 
             $categories = ['History', 'Art', 'Geography', 'Science', 'Sports'];
             foreach ($categories as $cat) {
-                // Get 4 random questions from each category
-                $query_questions = Question::inRandomOrder()->where('category', $cat)->limit(4)->get();
+                // Get 1 random question from each category
+                $query_questions = Question::inRandomOrder()->where('category', $cat)->limit(1)->get();
                 foreach ($query_questions as $qq) {
                     $quiz->questions()->attach($qq->id);
                 }
