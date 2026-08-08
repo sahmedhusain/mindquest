@@ -24,6 +24,16 @@
     </div>
 </div>
 
+@if (isset($results['xp_earned']))
+<div class="form-card">
+    <h2 class="card-title">XP Earned</h2>
+    <div class="welcome-center">
+        <div class="xp-earned-value">+{{ $results['xp_earned'] }} XP</div>
+        <p class="welcome-desc">Experience Points added to your profile.</p>
+    </div>
+</div>
+@endif
+
 <div class="form-card">
     <h2 class="card-title">Category Breakdown</h2>
     <p class="card-subtitle">Number of correct answers per category.</p>
@@ -32,22 +42,37 @@
         <div class="stat-card">
             <div class="stat-title">Art</div>
             <div class="stat-value">{{ $results['art'] }} / {{ $results['category_totals']['art'] }}</div>
+            <div class="category-progress-outer">
+                <div class="category-progress-inner" style="width: {{ $results['category_totals']['art'] > 0 ? round(($results['art'] / $results['category_totals']['art']) * 100) : 0 }}%;"></div>
+            </div>
         </div>
         <div class="stat-card">
             <div class="stat-title">Geography</div>
             <div class="stat-value">{{ $results['geography'] }} / {{ $results['category_totals']['geography'] }}</div>
+            <div class="category-progress-outer">
+                <div class="category-progress-inner" style="width: {{ $results['category_totals']['geography'] > 0 ? round(($results['geography'] / $results['category_totals']['geography']) * 100) : 0 }}%;"></div>
+            </div>
         </div>
         <div class="stat-card">
             <div class="stat-title">History</div>
             <div class="stat-value">{{ $results['history'] }} / {{ $results['category_totals']['history'] }}</div>
+            <div class="category-progress-outer">
+                <div class="category-progress-inner" style="width: {{ $results['category_totals']['history'] > 0 ? round(($results['history'] / $results['category_totals']['history']) * 100) : 0 }}%;"></div>
+            </div>
         </div>
         <div class="stat-card">
             <div class="stat-title">Science</div>
             <div class="stat-value">{{ $results['science'] }} / {{ $results['category_totals']['science'] }}</div>
+            <div class="category-progress-outer">
+                <div class="category-progress-inner" style="width: {{ $results['category_totals']['science'] > 0 ? round(($results['science'] / $results['category_totals']['science']) * 100) : 0 }}%;"></div>
+            </div>
         </div>
         <div class="stat-card">
             <div class="stat-title">Sports</div>
             <div class="stat-value">{{ $results['sports'] }} / {{ $results['category_totals']['sports'] }}</div>
+            <div class="category-progress-outer">
+                <div class="category-progress-inner" style="width: {{ $results['category_totals']['sports'] > 0 ? round(($results['sports'] / $results['category_totals']['sports']) * 100) : 0 }}%;"></div>
+            </div>
         </div>
     </div>
 </div>

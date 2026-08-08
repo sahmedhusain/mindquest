@@ -40,26 +40,41 @@
             <div class="stat-title">Art</div>
             <div class="stat-value">{{ $art['correct'] }} / {{ $art['total'] }}</div>
             <div class="stat-desc">Score &middot; {{ $art['percentage'] }}%</div>
+            <div class="category-progress-outer">
+                <div class="category-progress-inner" style="width: {{ $art['percentage'] }}%;"></div>
+            </div>
         </div>
         <div class="stat-card">
             <div class="stat-title">Geography</div>
             <div class="stat-value">{{ $geography['correct'] }} / {{ $geography['total'] }}</div>
             <div class="stat-desc">Score &middot; {{ $geography['percentage'] }}%</div>
+            <div class="category-progress-outer">
+                <div class="category-progress-inner" style="width: {{ $geography['percentage'] }}%;"></div>
+            </div>
         </div>
         <div class="stat-card">
             <div class="stat-title">History</div>
             <div class="stat-value">{{ $history['correct'] }} / {{ $history['total'] }}</div>
             <div class="stat-desc">Score &middot; {{ $history['percentage'] }}%</div>
+            <div class="category-progress-outer">
+                <div class="category-progress-inner" style="width: {{ $history['percentage'] }}%;"></div>
+            </div>
         </div>
         <div class="stat-card">
             <div class="stat-title">Science</div>
             <div class="stat-value">{{ $science['correct'] }} / {{ $science['total'] }}</div>
             <div class="stat-desc">Score &middot; {{ $science['percentage'] }}%</div>
+            <div class="category-progress-outer">
+                <div class="category-progress-inner" style="width: {{ $science['percentage'] }}%;"></div>
+            </div>
         </div>
         <div class="stat-card">
             <div class="stat-title">Sports</div>
             <div class="stat-value">{{ $sports['correct'] }} / {{ $sports['total'] }}</div>
             <div class="stat-desc">Score &middot; {{ $sports['percentage'] }}%</div>
+            <div class="category-progress-outer">
+                <div class="category-progress-inner" style="width: {{ $sports['percentage'] }}%;"></div>
+            </div>
         </div>
     </div>
 </div>

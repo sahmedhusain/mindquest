@@ -23,6 +23,15 @@
         <img class="welcome-logo" src="{{ asset('images/mister_quiz.png') }}" alt="Mister Quiz Logo">
         <h1 class="welcome-title">Mister Quiz</h1>
         <p class="welcome-desc">Test your knowledge across History, Art, Geography, Science, and Sports to earn XP and level up your rank!</p>
+        
+        @auth
+            <div class="welcome-status-badge">
+                <span>{{ auth()->user()->xp }} XP</span>
+                <span class="badge-separator">&middot;</span>
+                <span>{{ \App\Http\Controllers\ProfileController::getRank(auth()->user()->xp) }}</span>
+            </div>
+        @endauth
+
         <a class="btn btn-primary" href="{{ route('quiz') }}">Start Quiz</a>
     </div>
 </div>

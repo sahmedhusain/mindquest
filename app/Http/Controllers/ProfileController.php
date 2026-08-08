@@ -12,21 +12,24 @@ class ProfileController extends Controller
         $this->middleware('auth');
     }
 
+    public static function getRank($xp)
+    {
+        if ($xp < 1500) {
+            return 'Quiz Aprentice';
+        } elseif ($xp < 5000) {
+            return 'Average Quizer';
+        } elseif ($xp < 10000) {
+            return 'Epic Quizer';
+        } else {
+            return 'Quiz Master';
+        }
+    }
+
     public function index()
     {
         $user = Auth::user();
 
-        // Calculate rank based on XP thresholds
-        $xp = $user->xp;
-        if ($xp < 1500) {
-            $rank = 'Quiz Aprentice';
-        } elseif ($xp < 5000) {
-            $rank = 'Average Quizer';
-        } elseif ($xp < 10000) {
-            $rank = 'Epic Quizer';
-        } else {
-            $rank = 'Quiz Master';
-        }
+        $rank = self::getRank($user->xp);
 
         // Parse category scores
         $categories = ['art', 'geography', 'history', 'science', 'sports'];

@@ -26,11 +26,19 @@
             </thead>
             <tbody>
                 @forelse ($users as $index => $user)
-                <tr>
-                    <td class="rank-badge">#{{ $index + 1 }}</td>
-                    <td>{{ $user->username }}</td>
-                    <td>{{ $user->xp }}</td>
-                    <td>{{ $user->total_correct }}</td>
+                @php
+                    $rankClass = '';
+                    if ($index === 0) $rankClass = 'rank-gold';
+                    elseif ($index === 1) $rankClass = 'rank-silver';
+                    elseif ($index === 2) $rankClass = 'rank-bronze';
+                @endphp
+                <tr class="{{ $rankClass ? 'leaderboard-top-row' : '' }}">
+                    <td>
+                        <span class="rank-badge {{ $rankClass }}">#{{ $index + 1 }}</span>
+                    </td>
+                    <td class="user-cell">{{ $user->username }}</td>
+                    <td class="xp-cell">{{ $user->xp }} XP</td>
+                    <td class="correct-cell">{{ $user->total_correct }} correct</td>
                 </tr>
                 @empty
                 <tr class="empty-row">

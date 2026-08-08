@@ -95,16 +95,13 @@ class QuestionController extends Controller
 
         $user = Auth::user();
 
-        // Update XP
         $user->xp += $xp;
 
-        // Update category stats (correct/total)
-        foreach ($results as $key => $value) {
-            if ($key !== 'overall') {
-                $score = $user->$key ?: '0/0';
-                [$correct, $total] = explode('/', $score);
-                $user->$key = ($correct + $value) . '/' . ($total + 4);
-            }
+        $categories = ['art', 'geography', 'history', 'science', 'sports'];
+        foreach ($categories as $cat) {
+            $score = $user->$cat ?: '0/0';
+            [$correct, $total] = explode('/', $score);
+            $user->$cat = ($correct + $results[$cat]) . '/' . ($total + $categoryTotals[$cat]);
         }
 
         $user->save();
@@ -112,6 +109,7 @@ class QuestionController extends Controller
 
         $results['total'] = $totalQuestions;
         $results['category_totals'] = $categoryTotals;
+        $results['xp_earned'] = $xp;
 
         return redirect()->route('quiz.results')->with('results', $results);
     }
