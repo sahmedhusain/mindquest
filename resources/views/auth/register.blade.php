@@ -2,60 +2,63 @@
 
 @section('content')
 
-<a class="top-right-corner red-btn" href="{{ route('home') }}">Back ></a>
-
-<div>
-    <div>
-        <p class="title form-header">Register form</p>
+<div class="nav-container">
+    <div class="nav-links-left">
+        <a class="btn btn-secondary" href="{{ route('home') }}">Back</a>
     </div>
+</div>
+
+<div class="form-card header-card">
+    <h1 class="form-title">Register form</h1>
+    <p class="form-description">Create a new account to join the quiz challenges and start earning XP.</p>
 
     <form action="{{ route('register') }}" method="POST">
         @csrf
 
-        <div class="mb4">
-            <input class="center auth-input" type="text" name="username" id="username" placeholder="Enter username" value="{{ old('username')}}">
-
+        <div class="form-group">
+            <label class="form-label" for="username">Username</label>
+            <input class="form-input" type="text" name="username" id="username" placeholder="Enter username" value="{{ old('username') }}">
             @error('username')
-            <div class="error-msg mt2 center">
+            <div class="field-error">
                 {{ $message }}
             </div>
             @enderror
         </div>
 
-        <div class="mb4">
-            <input class="center auth-input" type="text" name="email" id="email" placeholder="Enter email" value="{{ old('email')}}">
-
+        <div class="form-group">
+            <label class="form-label" for="email">Email address</label>
+            <input class="form-input" type="text" name="email" id="email" placeholder="Enter email" value="{{ old('email') }}">
             @error('email')
-            <div class="error-msg mt2 center">
+            <div class="field-error">
                 {{ $message }}
             </div>
             @enderror
         </div>
 
-        <div class="mb4">
-            <input class="center auth-input" type="password" name="password" id="password" placeholder="Enter password">
-
+        <div class="form-group">
+            <label class="form-label" for="password">Password</label>
+            <input class="form-input" type="password" name="password" id="password" placeholder="Enter password">
             @error('password')
-            <div class=" error-msg mt2 center">
+            <div class="field-error">
                 {{ $message }}
             </div>
             @enderror
         </div>
 
-        <div class="mb4">
-            <input class="center auth-input" type="password" name="password_confirmation" id="password_confirmation" placeholder="Enter password confirmation">
-
+        <div class="form-group">
+            <label class="form-label" for="password_confirmation">Confirm password</label>
+            <input class="form-input" type="password" name="password_confirmation" id="password_confirmation" placeholder="Enter password confirmation">
             @error('password_confirmation')
-            <div class="error-msg mt2 center">
+            <div class="field-error">
                 {{ $message }}
             </div>
             @enderror
         </div>
 
-        <button class="center green-btn mb4" style="cursor: pointer;" type="submit">Register</button>
-
-        <a class="center simple-link" href="{{ route('login') }}">Already have an account? Login</a>
+        <button class="btn btn-primary" type="submit">Register</button>
     </form>
+
+    <a class="form-footer-link" href="{{ route('login') }}">Already have an account? Login</a>
 </div>
 
 @endsection

@@ -1,282 +1,346 @@
-body {
-  background-image: linear-gradient(to bottom, #4b4b4b, #000000);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
+/* Global Reset & Typography */
 * {
-  font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
 }
 
-.top-left-corner {
-  position: absolute;
-  left: 30px;
-  top: 30px;
+body {
+    background-color: #f0ebf8;
+    color: #202124;
+    line-height: 1.5;
+    padding: 20px 10px;
 }
 
-.top-right-corner {
-  position: absolute;
-  right: 30px;
-  top: 30px;
+/* Page Layout Container */
+.main-layout {
+    max-width: 770px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-bottom: 80px;
 }
 
-.bottom-right-corner {
-  position: absolute;
-  bottom: 30px;
-  right: 30px;
+/* Navigation System */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 0 4px;
 }
 
-.blue-btn {
-  padding: 20px 40px;
-  border: 3px solid rgb(176, 176, 255);
-  border-radius: 12px;
-  text-decoration: none;
-  color: white;
-  background: rgb(30, 30, 218);
-  transition: 0.5s;
-
-  font-size: x-large;
+.nav-links-left, .nav-links-right {
+    display: flex;
+    gap: 12px;
 }
 
-.blue-btn:hover {
-  background: rgb(14, 14, 95);
-  transition: 0.5s;
+/* Clean Google Forms Style Cards */
+.form-card {
+    background-color: #ffffff;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
 }
 
-.blue-btn:active {
-  box-shadow: 0px 0px 60px rgb(108, 108, 156) inset;
-  transition: 0s;
+/* The top accent stripe on headers */
+.form-card.header-card {
+    border-top: 10px solid #673ab7;
 }
 
-.green-btn {
-  padding: 20px 40px;
-  border: 3px solid rgb(176, 255, 180);
-  border-radius: 12px;
-  text-decoration: none;
-  color: white;
-  background: rgb(11, 156, 6);
-  transition: 0.5s;
-
-  font-size: x-large;
+/* Form Titles & Text */
+.form-title {
+    font-size: 32px;
+    font-weight: 400;
+    color: #202124;
+    margin-bottom: 8px;
 }
 
-.green-btn:hover {
-  background: rgb(28, 95, 14);
-  transition: 0.5s;
+.form-description {
+    font-size: 14px;
+    color: #202124;
 }
 
-.green-btn:active {
-  box-shadow: 0px 0px 60px rgb(176, 255, 180) inset;
-  transition: 0s;
+.card-title {
+    font-size: 20px;
+    font-weight: 500;
+    color: #202124;
+    margin-bottom: 8px;
 }
 
-.red-btn {
-  padding: 20px 40px;
-  border: 3px solid rgb(255, 176, 176);
-  border-radius: 12px;
-  text-decoration: none;
-  color: rgb(0, 0, 0);
-  background: rgb(218, 30, 30);
-  transition: 0.5s;
-
-  font-size: x-large;
+.card-subtitle {
+    font-size: 13px;
+    color: #70757a;
+    margin-bottom: 16px;
 }
 
-.red-btn:hover {
-  background: rgb(95, 14, 14);
-  transition: 0.5s;
+.question-text {
+    font-size: 16px;
+    font-weight: 400;
+    color: #202124;
+    margin-bottom: 16px;
 }
 
-.red-btn:active {
-  box-shadow: 0px 0px 60px rgb(156, 108, 108) inset;
-  transition: 0s;
+/* Inputs & Form Groups */
+.form-group {
+    margin-bottom: 24px;
 }
 
-.center {
-  display: table;
-  margin: 0 auto;
+.form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
 }
 
-.title {
-  text-align: center;
-  font-size: 50px;
-  word-spacing: 2px;
-  font-variant: small-caps;
-  color: rgb(78, 183, 243);
+.form-input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #dadce0;
+    padding: 8px 0;
+    font-size: 16px;
+    background: transparent;
+    color: #202124;
+    transition: border-color 0.2s;
 }
 
-.mb4 {
-  margin-bottom: 40px;
+.form-input:focus {
+    outline: none;
+    border-bottom: 2px solid #673ab7;
 }
 
-.mt2 {
-  margin-top: 20px;
+.form-input::placeholder {
+    color: #70757a;
+    opacity: 0.7;
 }
 
-.simple-link {
-  color: rgb(232, 255, 255);
-  text-decoration: none;
-  transition: 0.5s;
+/* Standard Radios for Questions */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-.simple-link:hover {
-  color: rgb(119, 167, 167);
-  transition: 0.7s;
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 8px 0;
 }
 
-.simple-link:active {
-  color: rgb(63, 194, 194);
+.radio-option input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #673ab7;
+    cursor: pointer;
 }
 
-.error-msg {
-  color: red;
-  text-shadow: 0px 0px 20px white;
+.radio-option span {
+    font-size: 14px;
+    color: #202124;
 }
 
-.line {
-  display: block;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  width: 85%;
-  height: 3px;
-  border-radius: 26px;
-  background-color: #3a96ff36;
+/* Buttons (Flat style) */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 24px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s, border-color 0.2s;
+    border: none;
 }
 
-.text-center {
-  text-align: center;
+.btn-primary {
+    background-color: #673ab7;
+    color: #ffffff;
 }
 
-.content {
-  margin-top: 5%;
+.btn-primary:hover {
+    background-color: #512da8;
 }
 
-/*----------------------- Home Page -----------------------*/
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 20%;
+.btn-secondary {
+    background-color: transparent;
+    color: #673ab7;
+    border: 1px solid #dadce0;
 }
 
-.main-img {
-  margin-top: 190px;
+.btn-secondary:hover {
+    background-color: rgba(103, 58, 183, 0.04);
 }
 
-/*---------------------------------------------------------*/
-
-/*----------------------- Auth Form -----------------------*/
-
-.auth-input {
-  font-size: larger;
-  width: 50%;
-  padding: 12px 10px;
-
-  color: azure;
-  background: none;
-  border: none;
-  border-left: 2px solid #5e76fa;
-  border-bottom: 2px solid #5e76fa;
-  transition: 0.5s;
-  border-radius: 12px;
+.btn-danger {
+    background-color: #d93025;
+    color: #ffffff;
 }
 
-auth-input:focus {
-  transition: 1s;
-  border-left: 2px solid #2a3572;
-  border-bottom: 2px solid #2a3572;
+.btn-danger:hover {
+    background-color: #b3261e;
 }
 
-/*---------------------------------------------------------*/
-
-/*----------------------- Quiz Form -----------------------*/
-
-.checkboxes-wrapper {
-  width: 70%;
-  margin: 20px auto;
-  margin-top: 30px;
+.btn-center {
+    display: table;
+    margin: 20px auto 0 auto;
 }
 
-.checkbox {
-  font-size: 24px;
-  background-color: #efefef;
-  border-radius: 4px;
-  border: 1px solid #d0d0d0;
-  margin-bottom: 20px;
+/* Validation Messages */
+.error-badge {
+    background-color: #fce8e6;
+    border: 1px solid #fad2cf;
+    color: #c5221f;
+    border-radius: 4px;
+    padding: 12px 16px;
+    font-size: 12px;
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
-.checkbox:hover {
-  background: #3039bb;
-  color: white;
+.field-error {
+    color: #c5221f;
+    font-size: 12px;
+    margin-top: 4px;
 }
 
-.checkbox label span {
-  text-align: center;
-  padding: 3px 0;
-  display: block;
+/* Tables (Leaderboard / Scores) */
+.data-table-container {
+    overflow-x: auto;
 }
 
-.checkbox label input {
-  display: none;
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
 }
 
-.checkbox label input:checked + span {
-  background-color: rgb(19, 4, 73);
-  color: white;
+.data-table th {
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 2px solid #dadce0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #202124;
 }
 
-/*---------------------------------------------------------*/
-
-/*------------------------ Results ------------------------*/
-
-.results-wrapper {
-  display: inline-flex;
-  padding: 20px 30px;
-  border-radius: 15px;
-  box-shadow: 0px 0px 23px 33px #80808069;
-  background-color: #80808069;
-
-  margin-top: 120px;
+.data-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #dadce0;
+    font-size: 14px;
+    color: #202124;
 }
 
-.result {
-  margin: 0px 35px;
-  min-width: 200px;
-  background-color: #0000002c;
-  padding: 3px 60px;
-  border-radius: 20px;
-  box-shadow: 0px 0px 20px #00000050;
-  color: rgb(162, 212, 255);
+.data-table tbody tr:hover {
+    background-color: #f8f9fa;
 }
 
-/*---------------------------------------------------------*/
-
-/*------------------------ Profile ------------------------*/
-
-.profile-header {
-  margin: 50px 0 60px 40px;
-  display: flex;
+.data-table tr.empty-row td {
+    text-align: center;
+    color: #70757a;
+    padding: 24px;
 }
 
-.profile-name {
-  font-variant: inherit;
-  font-size: 70px;
-  margin: 0;
+.rank-badge {
+    font-weight: 600;
+    color: #673ab7;
 }
 
-.profile-email {
-  font-variant: inherit;
-  margin: 0;
-  margin-left: 40px;
-  margin-top: 25px;
-  font-size: 40px;
-  color: rgba(34, 113, 158, 0.808);
+/* Stats Layout Grid (Profile / Results) */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
 }
 
-.profile-xp {
-  font-variant: inherit;
-  font-size: 50px;
-  margin: 0;
+.stat-card {
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    background-color: #ffffff;
 }
 
-/*---------------------------------------------------------*/ ;
+.stat-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #70757a;
+    margin-bottom: 4px;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: 600;
+    color: #673ab7;
+    margin-bottom: 4px;
+}
+
+.stat-value-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: #673ab7;
+    margin-bottom: 4px;
+    padding: 4px 0;
+}
+
+.stat-desc {
+    font-size: 12px;
+    color: #202124;
+}
+
+/* Welcome Center Layout */
+.welcome-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.welcome-logo {
+    width: 96px;
+    height: auto;
+    margin-bottom: 24px;
+}
+
+.welcome-title {
+    font-size: 36px;
+    font-weight: 400;
+    color: #202124;
+    margin-bottom: 12px;
+}
+
+.welcome-desc {
+    font-size: 16px;
+    color: #70757a;
+    margin-bottom: 32px;
+    max-width: 400px;
+}
+
+.form-card form {
+    margin-top: 24px;
+}
+
+.form-footer-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #673ab7;
+    text-decoration: none;
+}
+
+.form-footer-link:hover {
+    text-decoration: underline;
+}
+

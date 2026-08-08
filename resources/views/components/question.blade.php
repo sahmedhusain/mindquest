@@ -1,19 +1,17 @@
 @props(['question'=>$question])
 
-<div class="mb4">
-    <p class="center title" style="font-size: 28px; color: #7B68EE; margin-bottom: 5px;">{{ $question->question }}</p>
-    <p class="center" style="color: #5e76fa; font-style: italic; font-size: 16px; margin-bottom: 20px;">Category: {{ $question->category }} ({{ $question->xp }} XP)</p>
+<div class="form-card">
+    <h2 class="question-text">
+        {{ $question->question }}
+        <div class="question-meta">Category: {{ $question->category }} &middot; {{ $question->xp }} XP</div>
+    </h2>
 
-    <div class="checkboxes-wrapper" class="center">
+    <div class="radio-group">
         @foreach ($question->answers as $answer)
-        <div class="checkbox">
-            <label style="cursor: pointer;">
-                <input type="radio" name="{{ $question->id }}" value="{{ $answer->answer }}" required>
-                <span>{{ $answer->answer }}</span>
-            </label>
-        </div>
+        <label class="radio-option">
+            <input type="radio" name="{{ $question->id }}" value="{{ $answer->answer }}" required>
+            <span>{{ $answer->answer }}</span>
+        </label>
         @endforeach
     </div>
-
-    <div class="center line"></div>
 </div>

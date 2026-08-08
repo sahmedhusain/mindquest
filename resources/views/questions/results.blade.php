@@ -2,42 +2,54 @@
 
 @section('content')
 
-<a class="top-left-corner blue-btn" href="{{ route('profile') }}"> {{auth()->user()->username}} </a>
+<div class="nav-container">
+    <div class="nav-links-left">
+        <a class="btn btn-secondary" href="{{ route('home') }}">Back to Home</a>
+    </div>
+    <div class="nav-links-right">
+        <a class="btn btn-secondary" href="{{ route('profile') }}">View Profile</a>
+    </div>
+</div>
 
-<a class="top-right-corner blue-btn" href="{{ route('home') }}">
-    < Home</a>
+<div class="form-card header-card">
+    <h1 class="form-title">Quiz Results</h1>
+    <p class="form-description">Thank you for completing the quiz! Here is your score breakdown.</p>
+</div>
 
-        <div class="center text-center content">
-            <div>
-                <p class="title">Your score was</p>
-                <p class="title" style="font-size:70px; font-style:bold;">
-                    {{ $results['overall'] }} / 20
-                </p>
-            </div>
+<div class="form-card">
+    <h2 class="card-title">Overall Score</h2>
+    <div class="welcome-center">
+        <div class="welcome-title">{{ $results['overall'] }} / 20</div>
+        <p class="welcome-desc">Your answers have been checked and your statistics have been updated successfully.</p>
+    </div>
+</div>
 
-            <div class="results-wrapper">
-                <div class="result">
-                    <p>Art</p>
-                    <p class="title">{{ $results['art'] }} / 4</p>
-                </div>
-                <div class="result">
-                    <p>Geography</p>
-                    <p class="title">{{ $results['geography'] }} / 4</p>
-                </div>
-                <div class="result">
-                    <p>History</p>
-                    <p class="title">{{ $results['history'] }} / 4</p>
-                </div>
-                <div class="result">
-                    <p>Science</p>
-                    <p class="title">{{ $results['science'] }} / 4</p>
-                </div>
-                <div class="result">
-                    <p>Sports</p>
-                    <p class="title">{{ $results['sports'] }} / 4</p>
-                </div>
+<div class="form-card">
+    <h2 class="card-title">Category Breakdown</h2>
+    <p class="card-subtitle">Number of correct answers out of 4 questions in each category.</p>
 
-            </div>
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-title">Art</div>
+            <div class="stat-value">{{ $results['art'] }} / 4</div>
         </div>
+        <div class="stat-card">
+            <div class="stat-title">Geography</div>
+            <div class="stat-value">{{ $results['geography'] }} / 4</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-title">History</div>
+            <div class="stat-value">{{ $results['history'] }} / 4</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-title">Science</div>
+            <div class="stat-value">{{ $results['science'] }} / 4</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-title">Sports</div>
+            <div class="stat-value">{{ $results['sports'] }} / 4</div>
+        </div>
+    </div>
+</div>
 
-        @endsection
+@endsection

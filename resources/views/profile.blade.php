@@ -2,47 +2,64 @@
 
 @section('content')
 
-<a class="top-right-corner red-btn" href="{{ route('home') }}">Back ></a>
-
-<div style="margin-top:100px">
-    <div class="profile-header">
-        <p class="title profile-name">{{ auth()->user()->username }}</p>
-        <p class="title profile-email">{{ auth()->user()->email }}</p>
-    </div>
-
-    <div class="profile-header">
-        <p class="title profile-xp">{{ auth()->user()->xp }} XP</p>
-        <p class="title profile-email" style="margin-left: 40px; margin-top: 10px; color: #7B68EE;">{{ $rank }}</p>
+<div class="nav-container">
+    <div class="nav-links-left">
+        <a class="btn btn-secondary" href="{{ route('home') }}">Back to Home</a>
     </div>
 </div>
 
-<div class="center text-center" style="margin-top: 50px;">
-    <p class="title" style="font-size: 30px; margin-bottom: 20px;">Category Stats</p>
-    <div class="results-wrapper" style="margin-top: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-        <div class="result" style="margin: 10px; min-width: 180px;">
-            <p style="font-size: 20px;">Art</p>
-            <p class="title" style="font-size: 30px;">{{ $art['correct'] }} / {{ $art['total'] }}</p>
-            <p style="color: white; font-size: 18px; margin-top: 5px;">{{ $art['percentage'] }}%</p>
+<div class="form-card header-card">
+    <h1 class="form-title">Player Profile</h1>
+    <p class="form-description">Track your statistics, performance, and current rank class.</p>
+</div>
+
+<div class="form-card">
+    <h2 class="card-title">{{ auth()->user()->username }}</h2>
+    <p class="card-subtitle">{{ auth()->user()->email }}</p>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-title">Experience Points</div>
+            <div class="stat-value">{{ auth()->user()->xp }} XP</div>
+            <div class="stat-desc">Accumulated from correct answers</div>
         </div>
-        <div class="result" style="margin: 10px; min-width: 180px;">
-            <p style="font-size: 20px;">Geography</p>
-            <p class="title" style="font-size: 30px;">{{ $geography['correct'] }} / {{ $geography['total'] }}</p>
-            <p style="color: white; font-size: 18px; margin-top: 5px;">{{ $geography['percentage'] }}%</p>
+        <div class="stat-card">
+            <div class="stat-title">Current Rank</div>
+            <div class="stat-value-text">{{ $rank }}</div>
+            <div class="stat-desc">Based on your total XP</div>
         </div>
-        <div class="result" style="margin: 10px; min-width: 180px;">
-            <p style="font-size: 20px;">History</p>
-            <p class="title" style="font-size: 30px;">{{ $history['correct'] }} / {{ $history['total'] }}</p>
-            <p style="color: white; font-size: 18px; margin-top: 5px;">{{ $history['percentage'] }}%</p>
+    </div>
+</div>
+
+<div class="form-card">
+    <h2 class="card-title">Category breakdown</h2>
+    <p class="card-subtitle">Performance breakdown by category, showing correct answers, total questions answered, and percentage.</p>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-title">Art</div>
+            <div class="stat-value">{{ $art['correct'] }} / {{ $art['total'] }}</div>
+            <div class="stat-desc">Score &middot; {{ $art['percentage'] }}%</div>
         </div>
-        <div class="result" style="margin: 10px; min-width: 180px;">
-            <p style="font-size: 20px;">Science</p>
-            <p class="title" style="font-size: 30px;">{{ $science['correct'] }} / {{ $science['total'] }}</p>
-            <p style="color: white; font-size: 18px; margin-top: 5px;">{{ $science['percentage'] }}%</p>
+        <div class="stat-card">
+            <div class="stat-title">Geography</div>
+            <div class="stat-value">{{ $geography['correct'] }} / {{ $geography['total'] }}</div>
+            <div class="stat-desc">Score &middot; {{ $geography['percentage'] }}%</div>
         </div>
-        <div class="result" style="margin: 10px; min-width: 180px;">
-            <p style="font-size: 20px;">Sports</p>
-            <p class="title" style="font-size: 30px;">{{ $sports['correct'] }} / {{ $sports['total'] }}</p>
-            <p style="color: white; font-size: 18px; margin-top: 5px;">{{ $sports['percentage'] }}%</p>
+        <div class="stat-card">
+            <div class="stat-title">History</div>
+            <div class="stat-value">{{ $history['correct'] }} / {{ $history['total'] }}</div>
+            <div class="stat-desc">Score &middot; {{ $history['percentage'] }}%</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-title">Science</div>
+            <div class="stat-value">{{ $science['correct'] }} / {{ $science['total'] }}</div>
+            <div class="stat-desc">Score &middot; {{ $science['percentage'] }}%</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-title">Sports</div>
+            <div class="stat-value">{{ $sports['correct'] }} / {{ $sports['total'] }}</div>
+            <div class="stat-desc">Score &middot; {{ $sports['percentage'] }}%</div>
         </div>
     </div>
 </div>
