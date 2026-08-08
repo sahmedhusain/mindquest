@@ -19,35 +19,35 @@
 <div class="form-card">
     <h2 class="card-title">Overall Score</h2>
     <div class="welcome-center">
-        <div class="welcome-title">{{ $results['overall'] }} / 20</div>
+        <div class="welcome-title">{{ $results['overall'] }} / {{ $results['total'] }}</div>
         <p class="welcome-desc">Your answers have been checked and your statistics have been updated successfully.</p>
     </div>
 </div>
 
 <div class="form-card">
     <h2 class="card-title">Category Breakdown</h2>
-    <p class="card-subtitle">Number of correct answers out of 4 questions in each category.</p>
+    <p class="card-subtitle">Number of correct answers per category.</p>
 
     <div class="stats-grid">
         <div class="stat-card">
             <div class="stat-title">Art</div>
-            <div class="stat-value">{{ $results['art'] }} / 4</div>
+            <div class="stat-value">{{ $results['art'] }} / {{ $results['category_totals']['art'] }}</div>
         </div>
         <div class="stat-card">
             <div class="stat-title">Geography</div>
-            <div class="stat-value">{{ $results['geography'] }} / 4</div>
+            <div class="stat-value">{{ $results['geography'] }} / {{ $results['category_totals']['geography'] }}</div>
         </div>
         <div class="stat-card">
             <div class="stat-title">History</div>
-            <div class="stat-value">{{ $results['history'] }} / 4</div>
+            <div class="stat-value">{{ $results['history'] }} / {{ $results['category_totals']['history'] }}</div>
         </div>
         <div class="stat-card">
             <div class="stat-title">Science</div>
-            <div class="stat-value">{{ $results['science'] }} / 4</div>
+            <div class="stat-value">{{ $results['science'] }} / {{ $results['category_totals']['science'] }}</div>
         </div>
         <div class="stat-card">
             <div class="stat-title">Sports</div>
-            <div class="stat-value">{{ $results['sports'] }} / 4</div>
+            <div class="stat-value">{{ $results['sports'] }} / {{ $results['category_totals']['sports'] }}</div>
         </div>
     </div>
 </div>

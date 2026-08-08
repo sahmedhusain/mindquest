@@ -344,3 +344,22 @@ body {
     text-decoration: underline;
 }
 
+/* Question Metadata Label */
+.question-meta {
+    font-size: 12px;
+    font-weight: 400;
+    color: #70757a;
+    margin-top: 4px;
+}
+
+/* Questions List Spacing */
+.questions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Submit Button Spacing in Forms */
+.main-layout > form > .btn {
+    margin-top: 16px;
+}

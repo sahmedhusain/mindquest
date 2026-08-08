@@ -44,6 +44,7 @@ class ProfileController extends Controller
         }
 
         return view('profile', [
+            'user' => $user,
             'rank' => $rank,
             'art' => $stats['art'],
             'geography' => $stats['geography'],

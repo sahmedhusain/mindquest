@@ -14,13 +14,13 @@
 </div>
 
 <div class="form-card">
-    <h2 class="card-title">{{ auth()->user()->username }}</h2>
-    <p class="card-subtitle">{{ auth()->user()->email }}</p>
+    <h2 class="card-title">{{ $user->username }}</h2>
+    <p class="card-subtitle">{{ $user->email }}</p>
 
     <div class="stats-grid">
         <div class="stat-card">
             <div class="stat-title">Experience Points</div>
-            <div class="stat-value">{{ auth()->user()->xp }} XP</div>
+            <div class="stat-value">{{ $user->xp }} XP</div>
             <div class="stat-desc">Accumulated from correct answers</div>
         </div>
         <div class="stat-card">

@@ -9,7 +9,7 @@
     <div class="radio-group">
         @foreach ($question->answers as $answer)
         <label class="radio-option">
-            <input type="radio" name="{{ $question->id }}" value="{{ $answer->answer }}" required>
+            <input type="radio" name="{{ $question->id }}" value="{{ $answer->id }}" required>
             <span>{{ $answer->answer }}</span>
         </label>
         @endforeach

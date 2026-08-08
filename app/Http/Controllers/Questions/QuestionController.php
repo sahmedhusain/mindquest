@@ -64,21 +64,31 @@ class QuestionController extends Controller
             'science' => 0,
             'sports' => 0
         ];
+        $categoryTotals = [
+            'art' => 0, 'geography' => 0, 'history' => 0,
+            'science' => 0, 'sports' => 0
+        ];
         $xp = 0;
+        $totalQuestions = 0;
 
         foreach ($answers as $key => $value) {
             if (is_numeric($key)) {
+                $totalQuestions++;
+                $question = Question::find($key);
+                if (!$question) continue;
+
+                $catKey = strtolower($question->category);
+                if (array_key_exists($catKey, $categoryTotals)) {
+                    $categoryTotals[$catKey]++;
+                }
+
                 $correct_answer = Answer::where('question_id', $key)->where('correct', 1)->first();
-                if ($correct_answer && $correct_answer->answer === $value) {
-                    $question = Question::find($key);
-                    if ($question) {
-                        $results['overall']++;
-                        $catKey = strtolower($question->category);
-                        if (array_key_exists($catKey, $results)) {
-                            $results[$catKey]++;
-                        }
-                        $xp += $question->xp;
+                if ($correct_answer && (string)$correct_answer->id === (string)$value) {
+                    $results['overall']++;
+                    if (array_key_exists($catKey, $results)) {
+                        $results[$catKey]++;
                     }
+                    $xp += $question->xp;
                 }
             }
         }
@@ -99,6 +109,9 @@ class QuestionController extends Controller
 
         $user->save();
         $quiz->save();
+
+        $results['total'] = $totalQuestions;
+        $results['category_totals'] = $categoryTotals;
 
         return redirect()->route('quiz.results')->with('results', $results);
     }

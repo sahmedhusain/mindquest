@@ -17,7 +17,7 @@
     @csrf
 
     @if ($quiz)
-        <div class="radio-group">
+        <div class="questions-list">
             @foreach ($quiz['questions'] as $question)
                 <x-question :question="$question" />
             @endforeach
