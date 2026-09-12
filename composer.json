@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
+    "name": "sahmedhusain/mindquest",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "MindQuest - Interactive Quiz & Assessment Engine built with Laravel.",
     "keywords": [
         "framework",
         "laravel"
