@@ -29,12 +29,6 @@
 
 ---
 
-## 🖼️ Application Screenshot
-
-![MindQuest Platform Screenshot](public/images/mister_quiz.png)
-
----
-
 ## 🏗️ System Architecture
 
 ```mermaid
@@ -60,7 +54,7 @@ graph TD
     H1 --> I[(Relational Database)]
     H2 --> I
     H3 --> I
-```,StartLine:31,TargetContent:
+```
 
 ---
 
