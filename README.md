@@ -29,6 +29,12 @@
 
 ---
 
+## 🖼️ Application Screenshot
+
+![MindQuest Platform Screenshot](public/images/mister_quiz.png)
+
+---
+
 ## 🏗️ System Architecture
 
 ```mermaid
@@ -43,13 +49,18 @@ graph TD
     E --> F2[QuestionController: Quiz & Question Management]
     E --> F3[LeaderboardController: Global Rankings]
     
-    F1 & F2 & F3 --> G[Eloquent ORM Models]
+    F1 --> G[Eloquent ORM Models]
+    F2 --> G
+    F3 --> G
+    
     G --> H1[User & Quiz Models]
     G --> H2[Question & Answer Models]
     G --> H3[Question_Quiz Pivot Model]
     
-    H1 & H2 & H3 --> I[(Relational Database)]
-```
+    H1 --> I[(Relational Database)]
+    H2 --> I
+    H3 --> I
+```,StartLine:31,TargetContent:
 
 ---
 
